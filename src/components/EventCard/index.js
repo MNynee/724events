@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import PropTypes from "prop-types";
 import { getMonth } from "../../helpers/Date";
 
@@ -23,7 +24,7 @@ const EventCard = ({
       </div>
       <div className="EventCard__descriptionContainer">
         <div className="EventCard__title">{title}</div>
-        <div className="EventCard__month">{getMonth(date)}</div>
+        <div className="EventCard__month">{getMonth(parseInt(date.toLocaleDateString('fr-FR', { month: '2-digit' })))}</div>
       </div>
     </div>
   );
