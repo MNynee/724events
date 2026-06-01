@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import { useEffect, useState } from "react";
 import { useData } from "../../contexts/DataContext";
 import { getMonth } from "../../helpers/Date";
@@ -28,7 +29,7 @@ const Slider = () => {
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
         <div
-          key={`${event.title}-${event.id}`}
+          key={`${event.title}-${event.date}`}
           className={`SlideCard SlideCard--${
             index === idx ? "display" : "hide"
           }`}
@@ -38,7 +39,7 @@ const Slider = () => {
             <div className="SlideCard__description">
               <h3>{event.title}</h3>
               <p>{event.description}</p>
-              <div>{getMonth(new Date(event.date))}</div>
+              <div>{getMonth(parseInt(new Date(event.date).toLocaleDateString('fr-FR', { month: '2-digit' })))}</div>
             </div>
           </div>
         </div>
