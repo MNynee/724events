@@ -39,7 +39,7 @@ const Slider = () => {
             <div className="SlideCard__description">
               <h3>{event.title}</h3>
               <p>{event.description}</p>
-              <div>{getMonth(parseInt(new Date(event.date).toLocaleDateString('fr-FR', { month: '2-digit' })))}</div>
+              <div>{getMonth(new Date(event.date))}</div>
             </div>
           </div>
         </div>
